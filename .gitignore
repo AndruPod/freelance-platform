@@ -1,0 +1,7 @@
+**/.env
+**/node_modules/
+.idea/
+desktop.ini
+**/README.md
+**/eslint.config.js
+**/vite.config.js
