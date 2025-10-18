@@ -14,7 +14,7 @@ const createContext = ({req}) => {
         return {token: decoded};
 
     } catch(e) {
-        return {token: e.message};
+        return {token: null};
     }
 }
 

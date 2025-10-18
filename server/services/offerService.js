@@ -1,6 +1,6 @@
 import ApiError from "../error/ApiError.js";
 import {Op} from "sequelize";
-import {Category, Offer, User, UserOffer} from "../models/models.js";
+import {Category, Offer, OfferResponse, User, UserOffer} from "../models/models.js";
 
 class OfferService {
 
@@ -117,13 +117,11 @@ class OfferService {
         if(!id)
             throw ApiError.badRequest("There is no offer");
 
-        const deleted = await Offer.destroy({where: {id}});
+        const deletedOfferResponses = await OfferResponse.destroy({where: {offer_id: id}});
         const deletedUserOffer = await UserOffer.destroy({where: {offer_id: id}});
+        const deleted = await Offer.destroy({where: {id}});
 
-        console.log("DELETED", deleted);
-        console.log("DELETED USEROFFER", deletedUserOffer);
-
-        if(!deleted || !deletedUserOffer)
+        if(deleted === 0 || deletedUserOffer === 0 || deletedOfferResponses === 0)
             throw ApiError.badRequest("No offer has been deleted!");
 
         return true;
