@@ -8,7 +8,6 @@ export const UserSchema = `#graphql
         userOffers: [UserOffer!]!
     }
     input UserInput {
-        id: ID
         username: String!
         password: String!
         role: String

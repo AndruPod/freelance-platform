@@ -4,13 +4,13 @@ dotenv.config();
 
 // Creating a database connection for Postgres
 const sequelize = new Sequelize(
-    process.env.DATABASE_NAME,
-    process.env.DATABASE_USERNAME,
-    process.env.DATABASE_PASSWORD,
+    process.env.POSTGRES_DB,
+    process.env.POSTGRES_USER,
+    process.env.POSTGRES_PASSWORD,
     {
         dialect: 'postgres',
-        port: process.env.DATABASE_PORT,
-        host: process.env.DATABASE_HOST,
+        port: process.env.POSTGRES_PORT,
+        host: process.env.POSTGRES_HOST,
         logging: false,
     }
 )
