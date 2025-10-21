@@ -1,5 +1,5 @@
 
-
+// Middleware for logging requests info
 export const logger = (req, res, next) => {
 
     if (req.url === '/graphql') {

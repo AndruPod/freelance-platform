@@ -4,6 +4,7 @@ import ApiError from "../error/ApiError.js";
 
 class UserOffersService {
 
+    // Get all user offers
     async getAll(context) {
 
         const {token} = context;
@@ -51,6 +52,7 @@ class UserOffersService {
 
     }
 
+    // Get one user offer by ID
     async getOneById(id) {
 
         if(!id)

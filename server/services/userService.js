@@ -8,10 +8,12 @@ class UserService {
 
     // QUERIES
 
+    // Get all users
     async getAll() {
         return await User.findAll();
     }
 
+    // Get one user by ID
     async getOneById(id) {
 
         if(!id)
@@ -26,6 +28,7 @@ class UserService {
 
     }
 
+    // Get users by role
     async getAllByRole(role) {
 
         if(!role)
@@ -35,6 +38,7 @@ class UserService {
 
     }
 
+    // Check for authentication
     async checkAuth(context) {
 
         const {token} = context;
@@ -50,9 +54,8 @@ class UserService {
 
     // MUTATIONS
 
+    // Login
     async login({username, password}) {
-
-        console.log(username);
 
         if(!username || !password)
             throw ApiError.badRequest("Username or password is required");
@@ -72,6 +75,7 @@ class UserService {
 
     }
 
+    // Sign up
     async register({username, password, role}) {
 
         if(!username || !password)
@@ -98,6 +102,7 @@ class UserService {
 
     }
 
+    // Update user's role
     async updateRole({id, role}) {
 
         if(!id)
@@ -113,6 +118,7 @@ class UserService {
 
     }
 
+    // Delete user
     async delete(id) {
 
         if(!id)

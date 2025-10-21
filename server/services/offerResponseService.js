@@ -4,6 +4,7 @@ import {Op} from "sequelize";
 
 class OfferResponseService {
 
+    // Get all offers that freelancer responded on
     async getAllFreelancerOfferResponses(token) {
 
         if(!token)
@@ -39,6 +40,7 @@ class OfferResponseService {
 
     }
 
+    // Get all responses that client got from freelancers
     async getAllClientOfferResponses(token) {
 
         if(!token)
@@ -81,6 +83,7 @@ class OfferResponseService {
 
     }
 
+    // Get responses of one offer for a client
     async getOneOfferResponses(offerId) {
 
         if(!offerId)
@@ -126,6 +129,7 @@ class OfferResponseService {
 
     }
 
+    // Create a new response
     async createOfferResponse(offer, {token}) {
 
         const user_id = token.id;
@@ -166,6 +170,7 @@ class OfferResponseService {
 
     }
 
+    // Delete a response
     async deleteOfferResponse(input) {
 
         const {user_id, offer_id} = input;

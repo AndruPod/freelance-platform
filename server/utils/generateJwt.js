@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+// Generating a JWT
 export const generateJwt = (payload) => {
 
     const {id, username, role} = payload;
@@ -7,7 +8,7 @@ export const generateJwt = (payload) => {
     return jwt.sign(
         { id, username, role },
         process.env.JWT_SECRET_KEY,
-        {expiresIn: '24h'}
+        {expiresIn: '2h'}
     );
     
 }

@@ -4,6 +4,7 @@ import {UserOfferSchema} from "./schemas/userOfferSchema.js";
 import {CategorySchema} from "./schemas/categorySchema.js";
 import {OfferResponseSchema} from "./schemas/offerResponseSchema.js";
 
+// Combining all the schemas
 export const typeDefs = `#graphql
 ${UserSchema}
 ${OfferSchema}

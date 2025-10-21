@@ -5,10 +5,12 @@ class CategoryService {
 
     // QUERIES
 
+    // Get all categories
     async getAll() {
         return await Category.findAll()
     }
 
+    // Get one category by ID
     async getOneById(id) {
 
         if(!id) throw ApiError.badRequest("Category ID should be provided");
@@ -23,6 +25,7 @@ class CategoryService {
 
     // MUTATIONS
 
+    // Add new category
     async add(name) {
 
         if(!name) throw ApiError.badRequest("Name for the category should be provided");
@@ -35,6 +38,7 @@ class CategoryService {
 
     }
 
+    // Update a category
     async update({id, name}) {
 
         if(!id) throw ApiError.badRequest("ID for the category should be provided");
@@ -48,6 +52,7 @@ class CategoryService {
 
     }
 
+    // Delete a category
     async delete(id) {
 
         if(!id) throw ApiError.badRequest("ID for the category should be provided");

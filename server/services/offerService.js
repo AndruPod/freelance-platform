@@ -6,6 +6,7 @@ class OfferService {
 
     // QUERIES
 
+    // Get all offers
     async getAll(input) {
 
         const {status, selectedCategories = [], limit = 9, offset = 0} = input;
@@ -38,6 +39,7 @@ class OfferService {
 
     }
 
+    // Get one offer by ID
     async getOneByID(id) {
 
         if(!id)
@@ -72,6 +74,7 @@ class OfferService {
 
     // MUTATIONS
 
+    // Add a new offer
     async add(input, token) {
 
         const {title, description, category_id} = input;
@@ -93,6 +96,7 @@ class OfferService {
 
     }
 
+    // Changing status of the offer
     async changeStatus(input) {
 
         const {id, status} = input;
@@ -112,6 +116,7 @@ class OfferService {
 
     }
 
+    // Remove an offer
     async remove(id) {
 
         if(!id)

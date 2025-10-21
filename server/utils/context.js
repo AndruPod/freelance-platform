@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+// Context that checks for token and decode it to an object
 const createContext = ({req}) => {
     try {
 
