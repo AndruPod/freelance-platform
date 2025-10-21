@@ -8,6 +8,7 @@ import http from "http";
 import {typeDefs} from './schema.js';
 import createContext from "./utils/context.js";
 import {logger} from "./middlewares/loggingMiddleware.js";
+import connectWithRetry from "./utils/connectWithRetry.js";
 
 const PORT = process.env.PORT || 5000;
 
@@ -26,7 +27,7 @@ const start = async () => {
     try {
 
         // Connecting to database
-        await sequelize.authenticate();
+        await connectWithRetry();
         await sequelize.sync();
 
         await server.start();
@@ -43,7 +44,11 @@ const start = async () => {
         )
 
         // Creating server instance
-        serverInstance = httpServer.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+        serverInstance = httpServer.listen(
+            PORT,
+            "0.0.0.0",
+            () => console.log(`Listening on port ${PORT}`)
+        );
 
     } catch(e) {
         console.error(e);
