@@ -49,6 +49,18 @@ cd server
 npm install
 ```
 
+## 🐳 Running with Docker
+
+You can run the entire API in a containerized environment using Docker Compose.
+
+```bash
+# 🚀 Start all services (API + Database)
+npm run docker:up
+
+# 🛑 Stop and remove containers
+npm run docker:down
+```
+
 ## ▶️ Running the app
 
 ```bash
@@ -60,7 +72,7 @@ npm start
 ```
 
 Once started, the API will be available at:
-http://localhost:5000/graphql
+<br>👉 [http://localhost:5000/graphql](http://localhost:5000/graphql)
 
 ## 📁 Project Structure
 
@@ -130,7 +142,7 @@ type Mutation {
 }
 ```
 
-## 🧠 GraphQL Example Queries
+## 🧠 Testing GraphQL Queries
 
 You can test these queries in:
 
